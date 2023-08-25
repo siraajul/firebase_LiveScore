@@ -1,101 +1,98 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'firebase_options.dart';
+import 'firebase_notification.dart';
+import 'match_one.dart';
+import 'match_two.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(ScoreApp());
+  await Firebase.initializeApp();
+  await FirebaseNotification().initialization();
+  print(await FirebaseNotification().getToken());
+  FirebaseNotification().onTokenRefresh();
+  await FirebaseNotification().subscribeToTopic('Ostad');
+  runApp(const BasketBallLiveScoreApp());
 }
 
-class ScoreApp extends StatelessWidget {
-  const ScoreApp({super.key});
+class BasketBallLiveScoreApp extends StatelessWidget {
+  const BasketBallLiveScoreApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowMaterialGrid: false,
+      title: "Firebase Demo",
+      debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-
-  Future<void> getDataFromFirebase() async {
-    CollectionReference basketBallRef =
-        firebaseFirestore.collection('basketball');
-    final DocumentReference docReference = basketBallRef.doc('1_ban_vs_ind');
-    final data = await docReference.get();
-    print(data.data());
-  }
-
-  @override
-  void initState() {
-    getDataFromFirebase();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Live Score App'),
+        title: const Text('Match List'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
-            const SizedBox(
-              height: 48,
+            SizedBox(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Brazil Vs Germany',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MatchOne()));
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.blue,
+                      )),
+                ],
+              ),
             ),
-            Text(
-              'Match Name',
-              style: Theme.of(context).textTheme.headlineLarge,
+            const SizedBox(
+              height: 5,
             ),
             SizedBox(
-              height: 24,
+              height: 30,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Argentina Vs France',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MatchTwo()));
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.blue,
+                      )),
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      '12',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    Text(
-                      'Team Name',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    )
-                  ],
-                ),
-                const Text('VS'),
-                Column(
-                  children: [
-                    Text(
-                      '12',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    Text(
-                      'Team Name',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    )
-                  ],
-                ),
-              ],
-            )
           ],
         ),
       ),
