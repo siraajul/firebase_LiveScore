@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "75891774309",
+    "project_id": "scorecheker",
+    "storage_bucket": "scorecheker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75891774309:android:4166653e5f16243125c78c",
+        "android_client_info": {
+          "package_name": "com.siraajul.firebasebeginning.firebase_beginning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75891774309-9pdcnhco1un810k9vrqr5hprg1lq6nrp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCff7Rb9Wc9Z1R3ndvIyqHF0toZsssblfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75891774309-9pdcnhco1un810k9vrqr5hprg1lq6nrp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "75891774309-h39b8q9n9jqs8mehat46b91qj6s7mp4j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.siraajul.firebasebeginning.firebaseBeginning"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

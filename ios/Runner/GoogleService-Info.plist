@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>75891774309-h39b8q9n9jqs8mehat46b91qj6s7mp4j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.75891774309-h39b8q9n9jqs8mehat46b91qj6s7mp4j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyALB7alY-igNwK7s-ZybUOrj604gYH3CDE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>75891774309</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.siraajul.firebasebeginning.firebaseBeginning</string>
+	<key>PROJECT_ID</key>
+	<string>scorecheker</string>
+	<key>STORAGE_BUCKET</key>
+	<string>scorecheker.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:75891774309:ios:f6cf4dc5037ef63325c78c</string>
+</dict>
+</plist>
