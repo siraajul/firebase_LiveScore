@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class MatchOne extends StatelessWidget {
-  const MatchOne({super.key});
+class MatchTwo extends StatelessWidget {
+  const MatchTwo({super.key});
 
   @override
   Widget build(BuildContext context) {
