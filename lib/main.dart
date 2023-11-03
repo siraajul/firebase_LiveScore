@@ -11,7 +11,7 @@ Future<void> main() async {
   await FirebaseNotification().initialization();
   print(await FirebaseNotification().getToken());
   FirebaseNotification().onTokenRefresh();
-  await FirebaseNotification().subscribeToTopic('Ostad');
+  await FirebaseNotification().subscribeToTopic('AsthaIT');
   runApp(const BasketBallLiveScoreApp());
 }
 
